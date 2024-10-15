@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script type="text/javascript">
+    function sendEmail() {
+	Email.send({
+		SecureToken : "a492e78f-ab04-4f1e-a9cc-898d4e84ef17",
+		To: 'adityagurav54@gmail.com',
+		From: "eventparadisemails@gmail.com",
+		Subject: "Enquiry",
+		Body:  "Name : "+document.getElementById("name").value
+          +"<br> Email : "+document.getElementById("mail").value
+          +"<br> Phone No."+document.getElementById("phone").value
+          +"<br> Message : "+document.getElementById("message").value,
+	})
+		.then(function (message) {
+		alert("Message sent successfully")
+		});
+	}
+    </script>
+</head>
+<body>
+    <form class="form">
+        <h1>Contact Us</h1>
+        <input type="text" id="name" placeholder="Full Name">
+        <input type="email" id="mail" placeholder="mail">
+        <input type="text" id="phone" placeholder="Phone No.">
+        <textarea id="message" rows="5" placeholder="How can we help you ?"></textarea>
+        <form method="post">
+            <input type="button" value="Submit"
+                onclick="sendEmail(); reset(); return false;"/>
+        </form>
+    </form>
+    
+</body>
+</html>
